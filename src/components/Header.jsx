@@ -2,9 +2,12 @@ import React, { Fragment, useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { Link } from "react-router";
 import MobileNav from "./MobileNav";
+import { RxCross2 } from "react-icons/rx";
 
 function Header() {
-  const [isToggle,setisToggle]=useState(false)
+  const [isToggle, setisToggle] = useState(false);
+
+
   return (
     <>
       <div className="flex justify-between  items-center px-6 py-5">
@@ -34,9 +37,19 @@ function Header() {
             Sign up
           </button>
         </div>
+        {isToggle ? (
+          <RxCross2
+            className=" md:hidden text-2xl"
+            onClick={() => setisToggle(!isToggle)}
+          />
+        ) : (
+          <CiMenuBurger
+            className=" md:hidden text-2xl"
+            onClick={() => setisToggle(!isToggle)}
+          />
+        )}
 
-        <CiMenuBurger className=" md:hidden text-2xl" onClick={()=>setisToggle(!isToggle)}/>
-        {isToggle && <MobileNav />}
+        {isToggle && <MobileNav  setisToggle={setisToggle}/>}
       </div>
     </>
   );

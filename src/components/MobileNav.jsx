@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router";
 
-function MobileNav() {
+function MobileNav(props) {
   return (
-    <div className=" md:hidden fixed  top-16 bg-black/60  h-[100vh] w-full ">
-      <div className="fixed  right-0 top-16  h-full bg-red-500 w-1/2 text-white">
-        <nav className="flex flex-col gap-4 list-none items-center ">
+    <div className=" md:hidden fixed  top-16 bg-black/60  h-[100vh] w-full " onClick={()=>props.setisToggle(false)}>
+      <div className="fixed  right-0 top-16  h-full bg-red-500 w-1/2 text-white"  onClick={(e) => e.stopPropagation()}>
+        <nav className="flex flex-col gap-4 list-none items-center "  >
           <li>
             {" "}
             <Link to="/about"> About </Link>
